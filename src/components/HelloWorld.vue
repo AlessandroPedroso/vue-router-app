@@ -7,9 +7,13 @@
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>Installed CLI Plugins</h3>
+    <p>{{ $store.state.user.first_name }} {{ $store.state.user.last_name }}</p>
+    <p>{{ $store.state.user.email }}</p>
     <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank"
+          rel="noopener">babel</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank"
+          rel="noopener">eslint</a></li>
     </ul>
     <h3>Essential Links</h3>
     <ul>
@@ -23,7 +27,8 @@
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a>
+      </li>
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
@@ -35,6 +40,14 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  }, 
+  created() {
+    this.$store.state.user.first_name = 'Jon'
+    this.$store.state.user.last_name = 'Snow' 
+    this.$store.state.user.email = 'Jonsnow@email.com'
+
+    console.log('Componente Hello World:',this.$store.state.user.first_name)
+
   }
 }
 </script>
@@ -44,14 +57,17 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }

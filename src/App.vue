@@ -14,8 +14,15 @@
   export default {
     data(){
       return{
-        rotaDinamica:{name:'servicos'}
+        rotaDinamica:{name:'servicos'},
+
       }
+    },
+    created(){
+
+      console.log('componente app:',this.$store.state.user)
+      console.log('componente app:',this.$store)
+
     }
   }
 
