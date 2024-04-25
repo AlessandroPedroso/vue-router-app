@@ -7,7 +7,23 @@ export default createStore({
       last_name:'',
       email:''
     },
-    products:[],
+    products:[
+      {
+        id:1,
+        name:'Bola',
+        price:100
+      },
+      {
+        id:2,
+        name:'Chuteira',
+        price:200
+      },
+      {
+        id:3,
+        name:'Meião',
+        price:50
+      },
+    ],
     cart:[]
   },
   getters: {
@@ -19,6 +35,14 @@ export default createStore({
       state.user = data
       console.log('Dados antigos atualizado:storeuser',state.user)
     },
+
+    addProducts(state,data){
+        state.cart.push(data)
+    },
+    removeProduct(state,id){
+      const index = state.cart.findIndex(o=>o.id === id)
+      state.cart.splice(index,1)
+    }
   },
   actions: {
   },
