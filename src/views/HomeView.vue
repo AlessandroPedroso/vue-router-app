@@ -26,8 +26,10 @@ export default {
         last_name:'Pedroso',
         email:'alessandropedrosoti@gmail.com'
       }
-      
-      this.$store.commit('storeUSer', newUser)
+        this.$store.dispatch('storeUser',newUser).then(()=>{
+          console.log('terminou com sucesso')
+        })
+      // this.$store.commit('storeUSer', newUser)
     }
   }
 }

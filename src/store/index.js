@@ -27,6 +27,9 @@ export default createStore({
     cart:[]
   },
   getters: {
+    total(state){
+      return state.cart.reduce((total,item) => total += item.price, 0)
+    }
   },
   mutations: {
     storeUSer(state,data){
@@ -45,6 +48,24 @@ export default createStore({
     }
   },
   actions: {
+    storeUser({commit},data){
+      //{{commit}} ou  context.commit
+      // console.log("context",data)
+      // console.log(context.getters.total)
+      // utilizar o action para realizar uma promessa, buscar algo do backend e ai sim salvar na mutation
+      //ex: api/axios
+      return new Promise((resolve)=>{
+        setTimeout(()=>{
+          resolve()
+          console.log('here')
+          commit('storeUSer',data)
+        },3000)
+      })
+    
+    },
+    addProducts(context,data){
+      context.commit('addProducts',data)
+    }
   },
   modules: {
   }

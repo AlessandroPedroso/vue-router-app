@@ -10,6 +10,8 @@
             Remove
         </button>
 
+        <br>
+
     </div>
 </template>
 
@@ -30,7 +32,8 @@ export default {
     },
     methods: {
         addProduct() {
-            this.$store.commit('addProducts', this.product)
+            // this.$store.commit('addProducts', this.product)
+            this.$store.dispatch('addProducts',this.product)
             const existe = this.$store.state.cart.find(prod => prod.id === this.product.id)
 
             if (existe.id === this.product.id) {
